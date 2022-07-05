@@ -23,8 +23,10 @@
 
   <ItemGroup>
     <None Remove="Books\" />
+    <None Remove="Publications\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Books\" />
+    <Folder Include="Publications\" />
   </ItemGroup>
 </Project>
