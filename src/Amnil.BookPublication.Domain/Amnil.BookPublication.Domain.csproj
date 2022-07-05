@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Amnil.BookPublication.Domain.Shared\Amnil.BookPublication.Domain.Shared.csproj" />
+    <ProjectReference Include="..\Amnil.BookPublication.Application.Contracts\Amnil.BookPublication.Application.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
