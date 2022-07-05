@@ -22,7 +22,7 @@ namespace Amnil.BookPublication.Books
         public BookType Type { get; set; }
 
 
-        public int PublicationId { get; set; }
+        public Guid PublicationId { get; set; }
         public Publication Publication { get; set; }
     }
 }

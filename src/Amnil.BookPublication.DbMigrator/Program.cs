@@ -1,6 +1,6 @@
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -28,6 +28,9 @@ class Program
             .CreateLogger();
 
         await CreateHostBuilder(args).RunConsoleAsync();
+        var builder = WebApplication.CreateBuilder(args);
+        //builder.Services.AddDbContext<BookPublicationDbContext>(o =>
+    //o.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -95,6 +95,10 @@ public class BookPublicationDbContext :
             b.ConfigureByConvention();
             b.Property(x => x.Name).IsRequired().HasMaxLength(50);
             b.Property(x => x.ISBN).IsRequired().HasMaxLength(50);
+            b.Property(x => x.Author).IsRequired().HasMaxLength(50);
+            b.Property(x => x.Price).IsRequired();
+            b.Property(x => x.Edition).IsRequired();
+            b.Property(x => x.PublishedDate).IsRequired();
 
             
         });
@@ -106,6 +110,17 @@ public class BookPublicationDbContext :
             b.ConfigureByConvention();
             b.Property(x => x.Name).IsRequired().HasMaxLength(50);
             b.Property(x => x.Country).IsRequired().HasMaxLength(50);
+            b.Property(x => x.PhoneNumber).IsRequired();
+            b.Property(x => x.Email).IsRequired();
+            b.Property(x => x.PublicationEstablishedDate).IsRequired();
         });
+
+        /*builder.Entity<Book>(options =>
+        {
+            options.HasOne<Publication>(p => p.Publication)
+                    .WithMany(b => b.Books)
+                    .HasForeignKey(p => p.PublicationId)
+                    .OnDelete(DeleteBehavior.NoAction);
+        });*/
     }
 }
