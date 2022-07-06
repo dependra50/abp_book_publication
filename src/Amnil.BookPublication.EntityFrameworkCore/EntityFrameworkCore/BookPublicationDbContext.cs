@@ -100,6 +100,8 @@ public class BookPublicationDbContext :
             b.Property(x => x.Edition).IsRequired();
             b.Property(x => x.PublishedDate).IsRequired();
 
+            b.HasOne<Publication>().WithMany(b=>b.Books).HasForeignKey(p => p.PublicationId).IsRequired();
+
             
         });
 
