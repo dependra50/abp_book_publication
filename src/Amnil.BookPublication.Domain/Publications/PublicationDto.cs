@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Amnil.BookPublication.Books;
 using Volo.Abp.Application.Dtos;
 
@@ -17,7 +18,7 @@ namespace Amnil.BookPublication.Publications
         
         public string PhoneNumber { get; set; }
 
-
+        
         public DateTime PublicationEstablishedDate { get; set; }
 
 

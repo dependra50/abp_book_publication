@@ -4,6 +4,7 @@ namespace Amnil.BookPublication.Books
 	public enum BookType
 	{
         Undefined,
+        Academic,
         Adventure,
         Biography,
         Fantastic,

@@ -11,9 +11,9 @@ public class BookPublicationApplicationAutoMapperProfile : Profile
         /* You can configure your AutoMapper mapping configuration here.
          * Alternatively, you can split your mapping configurations
          * into multiple profile classes for a better organization. */
-        //CreateMap<Book, BookDto>();
+        CreateMap<Book, BookDto>();
         CreateMap<CreateUpdateBookDto, Book>();
         CreateMap<CreateUpdatePublicationDto, Publication>();
-        //CreateMap<Publication, PublicationDto>();
+        CreateMap<Publication, PublicationDto>();
     }
 }
