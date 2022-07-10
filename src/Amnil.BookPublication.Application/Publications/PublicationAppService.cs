@@ -16,14 +16,15 @@ namespace Amnil.BookPublication.Publications
         CreateUpdatePublicationDto>,//Used to create/update a book
         IPublicationAppService//Implement the IBookService
     {
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
         private readonly IPublicationRepository _publicationRepository;
 
         public PublicationAppService(IRepository<Publication , Guid> repository ,
-                                    IPublicationRepository publicationRepository ,
-                                    IMapper mapper) : base(repository)
+                                    IPublicationRepository publicationRepository)
+                                    //IMapper mapper)
+                                    : base(repository)
 		{
-            _mapper = mapper;
+            //_mapper = mapper;
             _publicationRepository = publicationRepository ?? throw new ArgumentNullException(nameof(publicationRepository));
 
 		}
@@ -31,7 +32,7 @@ namespace Amnil.BookPublication.Publications
         public async Task<PublicationDto> FindPublicationByNameAsync(FindPublicationByNameDto findPublicationByNameDto)
         {
             var publicationFromRepo = await _publicationRepository.FindPublicationByNameAsync(findPublicationByNameDto.PublicationName);
-            return _mapper.Map<Publication, PublicationDto>(publicationFromRepo);
+            return ObjectMapper.Map<Publication, PublicationDto>(publicationFromRepo);
         }
     }
 }

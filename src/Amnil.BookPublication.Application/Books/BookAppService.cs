@@ -16,20 +16,21 @@ namespace Amnil.BookPublication.Books
         IBookAppService//Implement the IBookService
     {
         private readonly IBookRepository _bookRepository;
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
 
         public BookAppService(IRepository<Book , Guid> repository ,
-                              IBookRepository bookRepository ,
-                              IMapper mapper) : base(repository)
+                              IBookRepository bookRepository )
+                              //IMapper mapper)
+                              : base(repository)
         {
             _bookRepository = bookRepository ?? throw new ArgumentNullException(nameof(bookRepository));
-            _mapper = mapper;
+            //_mapper = mapper;
         }
 
         public async Task<BookDto> FindBookByISBNNumberAsync(FindBookByISBNDto findBookByISBNDto)
         {
             var bookFromRepo = await _bookRepository.FindBookByISBNNumberAsync(findBookByISBNDto.ISBNNumber);
-            var bookDto = _mapper.Map<Book, BookDto>(bookFromRepo);
+            var bookDto = ObjectMapper.Map<Book, BookDto>(bookFromRepo);
             return bookDto;
         }
 
@@ -38,7 +39,7 @@ namespace Amnil.BookPublication.Books
             var bookFromRepo =  await _bookRepository.FindByBookAndPublicationNameAsync(findBookByBookAndPublicationNameDto.BookName,
                                                                           findBookByBookAndPublicationNameDto.PublicationName);
 
-            var bookDto = _mapper.Map<Book, BookDto>(bookFromRepo);
+            var bookDto = ObjectMapper.Map<Book, BookDto>(bookFromRepo);
             return bookDto;
 
         }
@@ -46,7 +47,7 @@ namespace Amnil.BookPublication.Books
         public async Task<BookDto> FindByBookNameAsync(FindBookByNameDto findBookByNameDto)
         {
             var bookFromRepo = await _bookRepository.FindByBookNameAsync(findBookByNameDto.BookName);
-            var bookDto = _mapper.Map<Book, BookDto>(bookFromRepo);
+            var bookDto = ObjectMapper.Map<Book, BookDto>(bookFromRepo);
             return bookDto;
 
         }

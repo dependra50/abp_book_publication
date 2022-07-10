@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Amnil.BookPublication.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
@@ -9,7 +10,7 @@ namespace Amnil.BookPublication.Books
 {
 	public class EfCoreBookRepository :
 		EfCoreRepository<BookPublicationDbContext , Book , Guid> ,
-		IBookRepository
+		IBookRepository , ITransientDependency
 	{
 		public EfCoreBookRepository(IDbContextProvider<BookPublicationDbContext> dbContextProvider) :
 			base(dbContextProvider)

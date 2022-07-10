@@ -51,7 +51,7 @@ public class BookPublicationEntityFrameworkCoreModule : AbpModule
             options.UseSqlServer();
         });
 
-        context.Services.AddTransient<IBookRepository, EfCoreBookRepository>();
-        context.Services.AddTransient<IPublicationRepository, EfCorePublicationRepository>();
+        //context.Services.AddTransient<IBookRepository, EfCoreBookRepository>();
+        //context.Services.AddTransient<IPublicationRepository, EfCorePublicationRepository>();
     }
 }
