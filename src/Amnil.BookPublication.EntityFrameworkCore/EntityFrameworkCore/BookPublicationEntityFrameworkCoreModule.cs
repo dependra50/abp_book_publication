@@ -1,4 +1,6 @@
 ﻿using System;
+using Amnil.BookPublication.Books;
+using Amnil.BookPublication.Publications;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -48,5 +50,8 @@ public class BookPublicationEntityFrameworkCoreModule : AbpModule
                  * See also BookPublicationMigrationsDbContextFactory for EF Core tooling. */
             options.UseSqlServer();
         });
+
+        context.Services.AddTransient<IBookRepository, EfCoreBookRepository>();
+        context.Services.AddTransient<IPublicationRepository, EfCorePublicationRepository>();
     }
 }

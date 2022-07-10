@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
@@ -11,7 +12,7 @@ namespace Amnil.BookPublication.Publications
         PagedAndSortedResultRequestDto,//Used for paging/sorting
         CreateUpdatePublicationDto>//Used to create/update a publication
     {
-
-	}
+        Task<PublicationDto> FindPublicationByNameAsync(FindPublicationByNameDto findPublicationByNameDto);
+    }
 }
 

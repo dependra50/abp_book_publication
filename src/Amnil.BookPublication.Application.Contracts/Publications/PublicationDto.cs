@@ -22,7 +22,7 @@ namespace Amnil.BookPublication.Publications
         public DateTime PublicationEstablishedDate { get; set; }
 
 
-        public List<Book> Books { get; set; }
+        //public List<Book> Books { get; set; }
     }
 }
 
